@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Task_Management_App.Connections;
+
+DbConnection newConnection = new DbConnection();

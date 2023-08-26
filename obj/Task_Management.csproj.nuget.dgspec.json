@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/sereya/Desktop/Task_Management/Task_Management.csproj": {}
+    "C:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj": {}
   },
   "projects": {
-    "/home/sereya/Desktop/Task_Management/Task_Management.csproj": {
+    "C:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sereya/Desktop/Task_Management/Task_Management.csproj",
+        "projectUniqueName": "C:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj",
         "projectName": "Task_Management",
-        "projectPath": "/home/sereya/Desktop/Task_Management/Task_Management.csproj",
-        "packagesPath": "/home/sereya/.nuget/packages/",
-        "outputPath": "/home/sereya/Desktop/Task_Management/obj/",
+        "projectPath": "C:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/sereya/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -37,6 +37,28 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
         }
       }
     }
