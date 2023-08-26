@@ -7,4 +7,4 @@ DbConnection newConnection = new DbConnection();
 // newController.LandingPage();
 
 ProjectController newProject = new ProjectController();
-newProject.CreatProject();
+newProject.UpdateProject();
