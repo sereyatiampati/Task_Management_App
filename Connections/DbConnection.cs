@@ -9,9 +9,9 @@ namespace Task_Management_App.Connections
 {
     public class DbConnection : DbContext
     {
-        DbSet<Models.Task> Tasks { get; set; }
-        DbSet<User> Users { get; set; }
-        DbSet<Project> Projects { get; set; }
+        public DbSet<Models.Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

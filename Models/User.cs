@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace Task_Management_App.Models
 {
     public enum Role{
-        Admin = 1,
-        Developer =2
+        Admin =1,
+        Developer=2
     }
     public class User
     {
@@ -15,7 +15,7 @@ namespace Task_Management_App.Models
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Role role { get; set; } = Role.Developer;
+        public Role role { get; set; }
         public Task task{ get; set; }
         
     }
