@@ -11,8 +11,10 @@ namespace Task_Management_App.Controllers
         Login = 1,
         Register = 2
     }
-    public class UserController
+    public class AuthController
     {
+        public DevController newDevcontroller = new DevController();
+        public AdminController newAdmin = new AdminController();
         public void LandingPage(){
             System.Console.WriteLine("Welcome to TASKIT");
             System.Console.WriteLine("---------------------------");
@@ -52,14 +54,23 @@ namespace Task_Management_App.Controllers
                 var context = new DbConnection();
                 var user = context.Users.FirstOrDefault(u => u.Email == email);
                 if (user != null && password == user.Password){
+                    if(user.role == Role.Admin){
                     System.Console.WriteLine("logged in successfully");
-                    System.Console.WriteLine($"Welcome back {user.UserName}");
+                    System.Console.WriteLine($"Welcome back Admin {user.UserName}");
+                    newAdmin.AdminLanding();
+                    }else{
+                    System.Console.WriteLine("logged in successfully");
+                    System.Console.WriteLine($"Welcome back Dev{user.UserName}");
+                    newDevcontroller.DevMenu(user.UserID);
+                    }
                 }
                 else{
+                    Console.ForegroundColor = ConsoleColor.Red;
                     System.Console.WriteLine("invalid credentials");
                     Login();
                 }
             }else{
+                Console.ForegroundColor = ConsoleColor.Red;
                 System.Console.WriteLine("email or password cannot be null");
             }
         }
@@ -91,6 +102,7 @@ namespace Task_Management_App.Controllers
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Invalid role input. Defaulting to Developer role.");
                 role = Role.Developer;
             }
@@ -105,8 +117,10 @@ namespace Task_Management_App.Controllers
             var context = new DbConnection();
              context.Users.Add(newUser);
              context.SaveChanges();
+             Console.ForegroundColor = ConsoleColor.DarkBlue;
              System.Console.WriteLine($"{newUser.UserName} you were registered successfully as {newUser.role}");
 
         }
+        
     }
 }

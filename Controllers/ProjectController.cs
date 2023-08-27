@@ -38,7 +38,7 @@ namespace Task_Management_App.Controllers
             var projects = context.Projects.ToList();
 
             foreach(var project in projects){
-                
+                Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.WriteLine($"{project.ProjectId}. {project.ProjectName} description: {project.Description}");
             }
         }
