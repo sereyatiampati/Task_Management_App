@@ -26,7 +26,7 @@ namespace Task_Management_App.Controllers
             if (int.TryParse(ProjectString, out int Project));
 
             System.Console.WriteLine("Select Dev to assign to: ...");
-            newAdmin.GetAllDevs();
+            GetUsersWithoutTasks();
             var devString = Console.ReadLine();
             if (int.TryParse(devString, out int dev));
 
@@ -57,6 +57,39 @@ namespace Task_Management_App.Controllers
                 System.Console.WriteLine("no tasks found");
             }
             
+        }
+        public void DeleteTask(){
+            Console.WriteLine("deleting Project");
+            GetAllTasks();
+            Console.WriteLine("Select Project to delete");
+            var input = Console.ReadLine();
+            int id = int.Parse(input);
+
+            var context = new Connections.DbConnection();
+            var task_to_delete = context.Tasks.FirstOrDefault(u => u.TaskID == id);
+            if(task_to_delete != null){
+                context.Tasks.Remove(task_to_delete);
+                context.SaveChanges();
+                Console.WriteLine($"task {task_to_delete.TaskName} deleted");
+            }else{
+                Console.WriteLine("task option not available");
+            }
+         }
+
+         public void GetUsersWithoutTasks()
+        {
+            using (var context = new Connections.DbConnection())
+            {
+                var usersWithoutTasks = context.Users
+                    .Where(user => !context.Tasks.Any(task => task.UserId == user.UserID))
+                    .ToList();
+
+                Console.WriteLine("Unassigned users without tasks:");
+                foreach (var user in usersWithoutTasks)
+                {
+                    Console.WriteLine($"{user.UserID}. {user.UserName}");
+                }
+            }
         }
     }
 }

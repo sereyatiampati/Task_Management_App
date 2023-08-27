@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Task_Management_App.Connections;
 using Task_Management_App.Models;
 
@@ -35,11 +36,16 @@ namespace Task_Management_App.Controllers
             Console.WriteLine("--------------------------------------");
 
             var context = new DbConnection();
-            var projects = context.Projects.ToList();
+            var projects = context.Projects.Include(u=>u.tasks).ToList();
 
             foreach(var project in projects){
                 Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.WriteLine($"{project.ProjectId}. {project.ProjectName} description: {project.Description}");
+                Console.WriteLine(" Tasks"); 
+                foreach(var task in project.tasks){
+                    Console.ForegroundColor= ConsoleColor.Green;
+                    System.Console.WriteLine($"     {task.TaskID}. {task.TaskName} | {task.Description} | {task.progress}");
+                }
             }
         }
          public void DeleteProject(){
