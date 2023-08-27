@@ -84,6 +84,8 @@ namespace Task_Management_App.Controllers
                 System.Console.WriteLine("invalid option");
             }
             System.Console.WriteLine($"{Task_to_update.TaskName} status updated to {Task_to_update.progress}");
+
+            GetPendingTasks(id);
         }
         
     }
