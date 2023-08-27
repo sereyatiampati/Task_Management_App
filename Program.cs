@@ -3,8 +3,10 @@ using Task_Management_App.Controllers;
 
 DbConnection newConnection = new DbConnection();
 
-// UserController newController = new UserController();
-// newController.LandingPage();
+AuthController newController = new AuthController();
+newController.LandingPage();
 
-ProjectController newProject = new ProjectController();
-newProject.UpdateProject();
+// ProjectController newProject = new ProjectController();
+// newProject.UpdateProject();
+// TaskControllers newTaskController = new TaskControllers();
+// newTaskController.GetAllTasks();
