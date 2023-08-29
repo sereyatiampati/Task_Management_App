@@ -66,16 +66,50 @@ namespace Task_Management_App.Controllers
             }
 
         }
-        public void GetAllDevs(){
+        public void GetAllDevs()
+        {
             var context = new DbConnection();
             var devs = context.Users.ToList();
-            if (devs.Count > 0){
-                System.Console.WriteLine("available Developers");
-                foreach(var dev in devs){
-                    Console.ForegroundColor= ConsoleColor.Yellow;
+            if (devs.Count > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                System.Console.WriteLine("Available Developers:");
+                foreach (var dev in devs)
+                {
                     System.Console.WriteLine($"{dev.UserID}. {dev.UserName}");
+                }
+                Console.ResetColor();
+
+                System.Console.WriteLine("Enter the ID of the developer to delete:");
+                var devIdToDelete = Console.ReadLine();
+                if (int.TryParse(devIdToDelete, out int devId))
+                {
+                    DeleteDeveloper(devId);
+                }
+                else
+                {
+                    System.Console.WriteLine("Invalid input. Please enter a valid developer ID.");
                 }
             }
         }
+
+        public void DeleteDeveloper(int devId)
+        {
+            using (var context = new DbConnection())
+            {
+                var developerToDelete = context.Users.FirstOrDefault(dev => dev.UserID == devId);
+                if (developerToDelete != null)
+                {
+                    context.Users.Remove(developerToDelete);
+                    context.SaveChanges();
+                    System.Console.WriteLine("Developer deleted successfully.");
+                }
+                else
+                {
+                    System.Console.WriteLine("Developer not found.");
+                }
+            }
+        }
+
     }
 }
