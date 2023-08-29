@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using Task_Management_App.Connections;
+using Task_Management_App.Models;
 
 
 namespace Task_Management_App.Controllers
@@ -80,9 +81,9 @@ namespace Task_Management_App.Controllers
         {
             using (var context = new Connections.DbConnection())
             {
-                var usersWithoutTasks = context.Users
-                    .Where(user => !context.Tasks.Any(task => task.UserId == user.UserID))
-                    .ToList();
+                    var usersWithoutTasks = context.Users
+                        .Where(user => user.role != Role.Admin && !context.Tasks.Any(task => task.UserId == user.UserID))
+                        .ToList();
 
                 Console.WriteLine("Unassigned users without tasks:");
                 foreach (var user in usersWithoutTasks)
