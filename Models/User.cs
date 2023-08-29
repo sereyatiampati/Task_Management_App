@@ -14,7 +14,7 @@ namespace Task_Management_App.Models
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public required string Password { get; set; }
         public Role role { get; set; }
         public Task task{ get; set; }
         
