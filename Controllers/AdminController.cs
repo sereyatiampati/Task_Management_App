@@ -16,7 +16,7 @@ namespace Task_Management_App.Controllers
              TaskControllers newTask = new TaskControllers();
 
             Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine("1. View all Projects");
+            System.Console.WriteLine("1. View all Projects and tasks");
             System.Console.WriteLine("2. View all Users");
             System.Console.WriteLine("3. Add Project");
             System.Console.WriteLine("4. Delete Project");
@@ -66,7 +66,9 @@ namespace Task_Management_App.Controllers
             }
 
         }
-        public void GetAllDevs()
+        
+
+                public void GetAllDevs()
         {
             var context = new DbConnection();
             var devs = context.Users.ToList();
@@ -80,19 +82,39 @@ namespace Task_Management_App.Controllers
                 }
                 Console.ResetColor();
 
-                System.Console.WriteLine("Enter the ID of the developer to delete:");
-                var devIdToDelete = Console.ReadLine();
-                if (int.TryParse(devIdToDelete, out int devId))
+                System.Console.WriteLine("\nOptions:");
+                System.Console.WriteLine("1. Delete a Developer");
+                System.Console.WriteLine("2. Exit");
+                System.Console.Write("Select an option: ");
+
+                var choice = Console.ReadLine();
+                switch (choice)
                 {
-                    DeleteDeveloper(devId);
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid input. Please enter a valid developer ID.");
+                    case "1":
+                        System.Console.Write("Enter the ID of the developer to delete: ");
+                        var devIdToDelete = Console.ReadLine();
+                        if (int.TryParse(devIdToDelete, out int devId))
+                        {
+                            DeleteDeveloper(devId);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("Invalid input. Please enter a valid developer ID.");
+                        }
+                        break;
+                    case "2":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        System.Console.WriteLine("Invalid choice.");
+                        break;
                 }
             }
+            else
+            {
+                System.Console.WriteLine("No developers found.");
+            }
         }
-
         public void DeleteDeveloper(int devId)
         {
             using (var context = new DbConnection())
