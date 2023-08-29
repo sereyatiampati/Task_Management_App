@@ -3463,19 +3463,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lenovo\\.nuget\\packages\\": {}
+    "/home/sereya/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj",
+      "projectUniqueName": "/home/sereya/Desktop/Task_Management/Task_Management.csproj",
       "projectName": "Task_Management",
-      "projectPath": "c:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\Task_Management.csproj",
-      "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\lenovo\\desktop\\.NET\\Task_Management_App\\obj\\",
+      "projectPath": "/home/sereya/Desktop/Task_Management/Task_Management.csproj",
+      "packagesPath": "/home/sereya/.nuget/packages/",
+      "outputPath": "/home/sereya/Desktop/Task_Management/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/sereya/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3536,7 +3536,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }

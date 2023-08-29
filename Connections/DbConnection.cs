@@ -15,7 +15,7 @@ namespace Task_Management_App.Connections
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost; Database=TaskManager; User Id=sa; Password=Wamutitu#1; Encrypt=False; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=localhost; Database=TaskManager; User Id=Sa; Password=Access@2023; Encrypt=False; TrustServerCertificate=True");
             // Console.WriteLine("Db creating");
         }
         
